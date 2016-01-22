@@ -44,7 +44,8 @@ pikePlaceMarket.createSiteElm = function(elType, text) {
 //loop through all of our stores & op hours and calculate the model data
 pikePlaceMarket.render = function() {
   console.log('executing displayData()');
-  var sectionEl = document.getElementById('storeData');
+  var mainEl = document.getElementById('storeData');
+  var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
   var hourData = this.generateHourData(this.opHours.length);
@@ -60,6 +61,7 @@ pikePlaceMarket.render = function() {
 
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  mainEl.appendChild(sectionEl);
 };
 
 var seaTac = {
@@ -106,7 +108,8 @@ seaTac.createSiteElm = function(elType, text) {
 
 seaTac.render = function() {
   console.log('executing displayData()');
-  var sectionEl = document.getElementById('storeData');
+  var mainEl = document.getElementById('storeData');
+  var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
   var hourData = this.generateHourData(this.opHours.length);
@@ -122,6 +125,7 @@ seaTac.render = function() {
 
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  mainEl.appendChild(sectionEl);
 };
 
 var southcenter = {
@@ -168,7 +172,8 @@ southcenter.createSiteElm = function(elType, text) {
 
 southcenter.render = function() {
   console.log('executing displayData()');
-  var sectionEl = document.getElementById('storeData');
+  var mainEl = document.getElementById('storeData');
+  var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
   var hourData = this.generateHourData(this.opHours.length);
@@ -184,6 +189,7 @@ southcenter.render = function() {
 
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  mainEl.appendChild(sectionEl);
 };
 
 var bellevueSquare = {
@@ -230,7 +236,8 @@ bellevueSquare.createSiteElm = function(elType, text) {
 
 bellevueSquare.render = function() {
   console.log('executing displayData()');
-  var sectionEl = document.getElementById('storeData');
+  var mainEl = document.getElementById('storeData');
+  var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
   var hourData = this.generateHourData(this.opHours.length);
@@ -246,6 +253,7 @@ bellevueSquare.render = function() {
 
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  mainEl.appendChild(sectionEl);
 };
 
 var alki = {
@@ -292,7 +300,8 @@ alki.createSiteElm = function(elType, text) {
 
 alki.render = function() {
   console.log('executing displayData()');
-  var sectionEl = document.getElementById('storeData');
+  var mainEl = document.getElementById('storeData');
+  var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
   var hourData = this.generateHourData(this.opHours.length);
@@ -308,6 +317,7 @@ alki.render = function() {
 
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  mainEl.appendChild(sectionEl);
 };
 
 pikePlaceMarket.render();
