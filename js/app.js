@@ -4,7 +4,7 @@ var pikePlaceMarket = {
   custMax:  88,
   avgCookiePerCust: 5.2,
   storeName: 'Pike Place Market',
-  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'],
 };
 
 pikePlaceMarket.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -69,7 +69,7 @@ var seaTac = {
   custMax:  24,
   avgCookiePerCust: 1.2,
   storeName: 'SeaTac Airport',
-  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'],
 };
 
 seaTac.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -133,7 +133,7 @@ var southcenter = {
   custMax:  38,
   avgCookiePerCust: 1.9,
   storeName: 'Southcenter',
-  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'],
 };
 
 southcenter.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -197,7 +197,7 @@ var bellevueSquare = {
   custMax:  48,
   avgCookiePerCust: 3.3,
   storeName: 'Bellevue Square',
-  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'],
 };
 
 bellevueSquare.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -261,7 +261,7 @@ var alki = {
   custMax:  24,
   avgCookiePerCust: 2.6,
   storeName: 'Alki',
-  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  opHours: ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'],
 };
 
 alki.cookiePurchases = function(numCustomers, cookiesPerCust) {
