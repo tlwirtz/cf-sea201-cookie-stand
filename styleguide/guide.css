@@ -19,11 +19,16 @@ h1 {
 }
 
 h2 {
-
+  font-size: 1.5em;
 }
 
 p {
+  font-size: 1em;
+  font-weight: 200;
+}
 
+.data {
+  font-family: 'Inconsolata', monospace;
 }
 
 main-color {
