@@ -27,7 +27,7 @@ h3 {
   color: rgba(255, 167, 107, 1)
 }
 
-p {
+p, li {
   font-size: 1em;
   font-weight: 200;
 }
