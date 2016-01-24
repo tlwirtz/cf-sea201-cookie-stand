@@ -9,7 +9,8 @@ function buildColorBlocks(styleArr) {
       var colorEl = document.createElement('section');
       var className = 'rgba-' + styleArr[style] + '-' + i;
       colorEl.className = className;
-      colorEl.textContent = className;
+      colorEl.className += ' color-block';
+      colorEl.style.color = 'rgba(255, 255, 255, 1)';
       colorBlockEl.appendChild(colorEl);
     }
 
@@ -17,4 +18,17 @@ function buildColorBlocks(styleArr) {
   }
 }
 
+//I'm trying to pull the value of the background color and then insert
+//into the 'textContent' property. But it is not working.
+
+function updateTextContent() {
+  var blocksToUpdate = document.getElementsByClassName('color-block');
+
+  for (var block in blocksToUpdate) {
+    var currentEl = blocksToUpdate[block];
+    currentEl.textContent = currentEl.classList[0];
+  }
+}
+
 buildColorBlocks(styles);
+updateTextContent();
