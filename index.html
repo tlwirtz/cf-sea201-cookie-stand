@@ -12,12 +12,36 @@
     <header>
       <h1 class="header-font">Pat's Salmon Cookie Store</h1>
     </header>
+
     <section class="push">
       <!-- this is empty to compensate for the header & prompt boxes -->
     </section>
 
-    <main id="storeData">
-      <h1>Store Data</h1>
+    <main>
+      <section id="storeData" >
+        <h1>Store Data</h1>
+      </section>
+
+      <section id="adminForm">
+        <h1>Add Another Store</h1>
+        <p>Fill out the form below and select <span class="highlight">Add Store</span> to create a new store with default hours</p>
+      </section>
+
+      <form class="new-store-form" action="index.html" method="post">
+        <label for="store-name-form">Store Name</label>
+        <input type="text" id="store-name-form" name="storeName" value="">
+
+        <label for="min-cust-form">Minimum Customers</label>
+        <input type="number" id="min-cust-form" name="minCustomers">
+
+        <label for="max-cust-form">Maximum Customers</label>
+        <input type="number" id="max-cust-form" name="maxCustomers" value="">
+
+        <label for="average-cookies-form">Average Cookies Per Customer</label>
+        <input type="number" id="avg-cookies-form" name="avgCookiesPerCust" value="">
+        
+        <input type="button" name="addStore" value="Add Store">
+      </form>
     </main>
 
     <script type="text/javascript" src="js/app.js" > </script>

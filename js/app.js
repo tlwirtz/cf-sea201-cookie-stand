@@ -49,14 +49,14 @@ Store.prototype.render = function() {
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
   var hourListEl = this.createSiteElm('ul', '');
-  var hourData = this.generateCookieData(this.opHours.length);
+  var hourlyCookieData = this.generateCookieData(this.opHours.length);
 
   for (var hour in this.opHours) {
-    var liEl = this.createSiteElm('li', this.opHours[hour] + ': ' + hourData[hour]);
+    var liEl = this.createSiteElm('li', this.opHours[hour] + ': ' + hourlyCookieData[hour]);
     hourListEl.appendChild(liEl);
   }
 
-  totalCookiesEl = this.createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourData));
+  totalCookiesEl = this.createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourlyCookieData));
   totalCookiesEl.className = 'highlight ';
   hourListEl.appendChild(totalCookiesEl);
   sectionEl.appendChild(storeNameEl);
