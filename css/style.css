@@ -82,6 +82,10 @@ strong {
   font-weight: 200;
 }
 
+ul.no-bullets {
+  list-style-type: none;
+}
+
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
