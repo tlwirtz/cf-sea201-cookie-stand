@@ -17,7 +17,7 @@ h1 {
 header {
   background-color: rgb(254, 131, 86);
   width: 100%;
-  height: 100px;
+  height: 75px;
   top: 0;
   position: absolute;
   text-align: center;
@@ -25,5 +25,5 @@ header {
 }
 
 .push {
-  margin: 150px;
+  margin: 125;
 }
