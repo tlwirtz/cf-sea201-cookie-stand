@@ -12,13 +12,13 @@ pikePlaceMarket.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 pikePlaceMarket.randomCustomer = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.random() * (max - min + 1) + min;
 };
 
-pikePlaceMarket.generateHourData = function(numHours) {
+pikePlaceMarket.generateHourData = function(operatingHours) {
   var storeData = [];
 
-  for (var idx = 1; idx <= numHours; idx++) {
+  for (var idx = 1; idx <= operatingHours; idx++) {
     var customers = this.randomCustomer(this.custMin, this.custMax);
     storeData.push(this.cookiePurchases(customers, this.avgCookiePerCust));
   }
@@ -43,7 +43,7 @@ pikePlaceMarket.createSiteElm = function(elType, text) {
 
 //loop through all of our stores & op hours and calculate the model data
 pikePlaceMarket.render = function() {
-  console.log('executing displayData()');
+  console.log('executing render()');
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
@@ -77,13 +77,13 @@ seaTac.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 seaTac.randomCustomer = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.random() * (max - min + 1) + min;
 };
 
-seaTac.generateHourData = function(numHours) {
+seaTac.generateHourData = function(operatingHours) {
   var storeData = [];
 
-  for (var idx = 1; idx <= numHours; idx++) {
+  for (var idx = 1; idx <= operatingHours; idx++) {
     var customers = this.randomCustomer(this.custMin, this.custMax);
     storeData.push(this.cookiePurchases(customers, this.avgCookiePerCust));
   }
@@ -107,7 +107,7 @@ seaTac.createSiteElm = function(elType, text) {
 };
 
 seaTac.render = function() {
-  console.log('executing displayData()');
+  console.log('executing render()');
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
@@ -141,13 +141,13 @@ southcenter.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 southcenter.randomCustomer = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.random() * (max - min + 1) + min;
 };
 
-southcenter.generateHourData = function(numHours) {
+southcenter.generateHourData = function(operatingHours) {
   var storeData = [];
 
-  for (var idx = 1; idx <= numHours; idx++) {
+  for (var idx = 1; idx <= operatingHours; idx++) {
     var customers = this.randomCustomer(this.custMin, this.custMax);
     storeData.push(this.cookiePurchases(customers, this.avgCookiePerCust));
   }
@@ -171,7 +171,7 @@ southcenter.createSiteElm = function(elType, text) {
 };
 
 southcenter.render = function() {
-  console.log('executing displayData()');
+  console.log('executing render()');
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
@@ -205,13 +205,13 @@ bellevueSquare.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 bellevueSquare.randomCustomer = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.random() * (max - min + 1) + min;
 };
 
-bellevueSquare.generateHourData = function(numHours) {
+bellevueSquare.generateHourData = function(operatingHours) {
   var storeData = [];
 
-  for (var idx = 1; idx <= numHours; idx++) {
+  for (var idx = 1; idx <= operatingHours; idx++) {
     var customers = this.randomCustomer(this.custMin, this.custMax);
     storeData.push(this.cookiePurchases(customers, this.avgCookiePerCust));
   }
@@ -235,7 +235,7 @@ bellevueSquare.createSiteElm = function(elType, text) {
 };
 
 bellevueSquare.render = function() {
-  console.log('executing displayData()');
+  console.log('executing render()');
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);
@@ -269,13 +269,13 @@ alki.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 alki.randomCustomer = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.random() * (max - min + 1) + min;
 };
 
-alki.generateHourData = function(numHours) {
+alki.generateHourData = function(operatingHours) {
   var storeData = [];
 
-  for (var idx = 1; idx <= numHours; idx++) {
+  for (var idx = 1; idx <= operatingHours; idx++) {
     var customers = this.randomCustomer(this.custMin, this.custMax);
     storeData.push(this.cookiePurchases(customers, this.avgCookiePerCust));
   }
@@ -299,7 +299,7 @@ alki.createSiteElm = function(elType, text) {
 };
 
 alki.render = function() {
-  console.log('executing displayData()');
+  console.log('executing render()');
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
   var storeNameEl = this.createSiteElm('h2', this.storeName);

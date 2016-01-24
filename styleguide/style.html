@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pat's Style Guide</title>
+    <!-- Fonts, Fonts Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,200" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="guide.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+    <header>
+      <h1 class="header-font">Pat's Style Guide</h1>
+    </header>
+
+    <div class="push"></div>
+
+    <main>
+      <section>
+        <h1>Typography</h1>
+
+        <section class="three-col">
+          <h1>Heading 1</h1>
+          <p><strong>Font:</strong> Work Sans</p>
+          <p><strong>Color:</strong> rgba(248, 104, 121, 1)</p>
+        </section>
+
+        <section class="three-col">
+          <h2>Heading 2</h2>
+          <p><strong>Font:</strong> Work Sans</p>
+          <p><strong>Color:</strong> color: rgba( 80, 192, 173, 1)</p>
+        </section>
+
+        <section class="three-col">
+          <h3>Heading 3</h3>
+          <p><strong>Font:</strong> Work Sans</p>
+          <p><strong>Color:</strong> rgba(255, 167, 107, 1)</p>
+        </section>
+
+        <section>
+          <section class="three-col">
+            <h2> Main Body</h2>
+            <p>This is the body copy.</p>
+            <p><strong>Font:</strong> Work Sans</p>
+            <p><strong>Font Weight:</strong> 200</p>
+            <p><strong>Color:</strong> rgba(74, 73, 74, 1);</p>
+          </section>
+
+          <section class="three-col">
+            <h2>Highlighting</h2>
+            <p>This is waht a <span class="highlight">highlight</span> looks like</p>
+            <p><strong>Font:</strong> Work Sans</p>
+            <p><strong>Font Weight:</strong> 200</p>
+            <p><strong>Color:</strong> rgba(233, 116, 37, 1)</p>
+          </section>
+
+          <section class="three-col">
+            <h2>Data</h2>
+            <code>This is what data looks like</code>
+            <p>Use the <code>code</code> tag.</p>
+            <p><strong>Font:</strong> Inconsolata</p>
+            <p><strong>Color:</strong> rgba( 80, 192, 173, 1)</p>
+          </section>
+        </section>
+      </section>
+
+      <section id="colorBlocks">
+        <h1>Brand Colors</h1>
+        <p> There is one primary, two secondary colors for Pat's Cookie Stand</p>
+
+        <section class="three-col rgba-primary-0">
+          <p>Primary</p>
+          <p>rgba(248, 104, 121, 1)</p>
+          <p>#F86879</p>
+        </section>
+
+        <section class="three-col rgba-secondary-1-0">
+          <p>Secondary 1</p>
+          <p>rgba(255,167,107,1)</p>
+          <p>#FFA76B</p>
+        </section>
+
+        <section class="three-col rgba-secondary-2-0">
+          <p>Secondary 2</p>
+          <p>rgba( 80,192,173,1)</p>
+          <p>#50C0AD</p>
+        </section>
+
+        <h2>Color Classes</h2>
+        <p>There are multiple color-classes built to help with your development.</p>
+        <p>To use with text, simply add <code>'-text'</code> to the end of the class.</p>
+        <p>For example, if you want to use the first secondary color for your text you would use the class <code>'rgba-secondary-1-0-text'</code></p>
+      </section>
+      <script type="text/javascript" src="style.js"></script>
+    </main>
+  </body>
+</html>
