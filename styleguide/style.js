@@ -1,4 +1,4 @@
-var styles = ['primary', 'secondary-1', 'secondary-2', 'complement'];
+var styles = ['primary', 'secondary-1', 'secondary-2'];
 var mainSectionEl = document.getElementById('colorBlocks');
 
 function buildColorBlocks(styleArr) {
