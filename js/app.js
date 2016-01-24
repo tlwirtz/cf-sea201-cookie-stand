@@ -57,9 +57,11 @@ Store.prototype.render = function() {
   }
 
   totalCookiesEl = this.createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourData));
+  totalCookiesEl.className = 'highlight ';
   hourListEl.appendChild(totalCookiesEl);
   sectionEl.appendChild(storeNameEl);
   sectionEl.appendChild(hourListEl);
+  sectionEl.className = 'three-col';
   mainEl.appendChild(sectionEl);
 };
 
