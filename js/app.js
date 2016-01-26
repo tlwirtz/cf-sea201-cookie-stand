@@ -71,8 +71,12 @@ function renderStores(storesArr) {
   }
 }
 
-function addStore() {
-  console.log('Im adding a store');
+function addStore(e) {
+  e.preventDefault();
+  var form = document.getElementById('newStoreForm');
+  console.log('Here are my form values');
+  console.log('Store Name:: ' + form.storeName.value);
+  console.log('Im adding a store ' + this.target);
 }
 
 function initStores(storesArr) {
@@ -83,9 +87,9 @@ function initStores(storesArr) {
   var alki = new Store('Alki', 3, 24, 2.6, hours);
 
   renderStores(stores);
+
   var buttonEl = document.getElementById('addStoreButton');
   buttonEl.addEventListener('click', addStore, false);
-
 }
 
 window.onload = function() {

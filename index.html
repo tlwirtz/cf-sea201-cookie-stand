@@ -27,26 +27,26 @@
         <p>Fill out the form below and select <span class="highlight">Add Store</span> to create a new store with default hours</p>
       </section>
 
-      <form class="new-store-form" action="index.html" method="post">
+      <form class="new-store-form" action="index.html" method="post" id="newStoreForm">
         <ul class="no-bullets">
           <li>
-            <label for="store-name-form">Store Name</label>
-            <input type="text" id="store-name-form" name="storeName" value="">
+            <label for="storeName">Store Name</label>
+            <input type="text" id="storeName" name="storeName" value="">
           </li>
           <li>
-            <label for="min-cust-form">Minimum Customers</label>
-            <input type="number" id="min-cust-form" name="minCustomers">
+            <label for="minCustomer">Minimum Customers</label>
+            <input type="number" id="minCustomer" name="minCustomers">
           </li>
           <li>
-            <label for="max-cust-form">Maximum Customers</label>
-            <input type="number" id="max-cust-form" name="maxCustomers" value="">
+            <label for="maxCustomer">Maximum Customers</label>
+            <input type="number" id="maxCustomer" name="maxCustomers" value="">
           </li>
           <li>
-            <label for="average-cookies-form">Average Cookies Per Customer</label>
-            <input type="number" id="avg-cookies-form" name="avgCookiesPerCust" value="">
+            <label for="averageCookies">Average Cookies Per Customer</label>
+            <input type="number" id="averageCookies" name="avgCookiesPerCust" value="">
           </li>
           <li>
-            <input type="button" name="addStore" id="addStoreButton" value="Add Store">
+            <button type="submit" name="addStore" id="addStoreButton">Add Store</button>
           </li>
         </ul>
       </form>
