@@ -65,6 +65,16 @@ Store.prototype.render = function() {
   mainEl.appendChild(sectionEl);
 };
 
+function renderStores(storesArr) {
+  for (var store  in storesArr) {
+    storesArr[store].render();
+  }
+}
+
+function addStore() {
+  console.log('Im adding a store');
+}
+
 function initStores(storesArr) {
   var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, hours);
   var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, hours);
@@ -72,9 +82,10 @@ function initStores(storesArr) {
   var bellevueSquare = new Store('Bellevue Square', 20, 48, 3.3, hours);
   var alki = new Store('Alki', 3, 24, 2.6, hours);
 
-  for (var store  in storesArr) {
-    storesArr[store].render();
-  }
+  renderStores(stores);
+  var buttonEl = document.getElementById('addStoreButton');
+  buttonEl.addEventListener('click', addStore, false);
+
 }
 
 window.onload = function() {
