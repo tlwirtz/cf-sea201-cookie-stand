@@ -74,9 +74,15 @@ function renderStores(storesArr) {
 function addStore(e) {
   e.preventDefault();
   var form = document.getElementById('newStoreForm');
-  console.log('Here are my form values');
-  console.log('Store Name:: ' + form.storeName.value);
-  console.log('Im adding a store ' + this.target);
+  formLog(form);
+}
+
+function formLog(form) {
+  for (var props in form) {
+    if (form.hasOwnProperty(props)) {
+      console.log(form[props].name + ':: ' + form[props].value);
+    }
+  }
 }
 
 function initStores(storesArr) {
