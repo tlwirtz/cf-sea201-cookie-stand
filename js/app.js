@@ -71,16 +71,22 @@ function renderStores(storesArr) {
   }
 }
 
-function addStore(e) {
+function processForm(e) {
   e.preventDefault();
   var form = document.getElementById('newStoreForm');
-  formLog(form);
+  addStore(form);
 }
 
-function formLog(form) {
-  for (var props in form) {
-    if (form.hasOwnProperty(props)) {
-      console.log(form[props].name + ':: ' + form[props].value);
+function addStore(form) {
+  var store = new Store(form.storeName.value, form.minCustomer.value, form.maxCustomer.value, form.averageCookies.value, hours);
+  store.render();
+  formLog(store);
+}
+
+function formLog(store) {
+  for (var props in store) {
+    if (store.hasOwnProperty(props)) {
+      console.log(store[props].name + ':: ' + store[props].value);
     }
   }
 }
@@ -95,7 +101,7 @@ function initStores(storesArr) {
   renderStores(stores);
 
   var buttonEl = document.getElementById('addStoreButton');
-  buttonEl.addEventListener('click', addStore, false);
+  buttonEl.addEventListener('click', processForm, false);
 }
 
 window.onload = function() {
