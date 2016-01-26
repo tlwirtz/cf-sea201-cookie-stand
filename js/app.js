@@ -38,25 +38,19 @@ Store.prototype.calcTotalCookies = function(hourData) {
   return total;
 };
 
-Store.prototype.createSiteElm = function(elType, text) {
-  var siteEl = document.createElement(elType);
-  siteEl.textContent = text;
-  return siteEl;
-};
-
 Store.prototype.render = function() {
   var mainEl = document.getElementById('storeData');
   var sectionEl = document.createElement('section');
-  var storeNameEl = this.createSiteElm('h2', this.storeName);
-  var hourListEl = this.createSiteElm('ul', '');
+  var storeNameEl = createSiteElm('h2', this.storeName);
+  var hourListEl = createSiteElm('ul', '');
   var hourlyCookieData = this.generateCookieData(this.opHours.length);
 
   for (var hour in this.opHours) {
-    var liEl = this.createSiteElm('li', this.opHours[hour] + ': ' + hourlyCookieData[hour]);
+    var liEl = createSiteElm('li', this.opHours[hour] + ': ' + hourlyCookieData[hour]);
     hourListEl.appendChild(liEl);
   }
 
-  totalCookiesEl = this.createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourlyCookieData));
+  totalCookiesEl = createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourlyCookieData));
   totalCookiesEl.className = 'highlight ';
   hourListEl.appendChild(totalCookiesEl);
   sectionEl.appendChild(storeNameEl);
@@ -64,6 +58,12 @@ Store.prototype.render = function() {
   sectionEl.className = 'three-col';
   mainEl.appendChild(sectionEl);
 };
+
+function createSiteElm(elType, text) {
+  var siteEl = document.createElement(elType);
+  siteEl.textContent = text;
+  return siteEl;
+}
 
 function renderStores(storesArr) {
   for (var store  in storesArr) {
@@ -82,6 +82,7 @@ function addStore(form) {
   var store = new Store(form.storeName.value, form.minCustomer.value, form.maxCustomer.value, form.averageCookies.value, hours);
   store.render();
   storeLog(store);
+  showAlert('success', 'GOOD JOB!');
 }
 
 function storeLog(store) {
@@ -98,6 +99,18 @@ function resetForm(form) {
       form[props].value = '';
     }
   }
+}
+
+function validateMinMax(min, max) {
+  // add some validation
+}
+
+function showAlert(status, msg) {
+  var alertEl = document.getElementById('formFeedback');
+
+  var msgEl = createSiteElm('p', msg);
+  msgEl.className = status;
+  alertEl.appendChild(msgEl);
 }
 
 function initStores(storesArr) {

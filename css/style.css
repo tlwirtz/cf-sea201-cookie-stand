@@ -50,6 +50,24 @@ strong {
   font-weight: 400
 }
 
+.error {
+  width: 30%;
+  color: rgba(255, 255, 255, 255);
+  background-color: rgba( 23, 148, 127, 1);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.success {
+  width: 30%;
+  color: rgba(255, 255, 255, 255);
+  background-color: rgba( 65, 196,  31, 1);
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .white-text{
   color: rgba(255, 255, 255, 1);
 }
