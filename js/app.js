@@ -16,7 +16,7 @@ Store.prototype.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 Store.prototype.randomCustomer = function(min, max) {
-  return Math.random() * (max - min + 1) + min;
+  return Math.random() * ((max - min + 1) + min);
 };
 
 Store.prototype.generateCookieData = function(operatingHours) {
@@ -74,15 +74,20 @@ function renderStores(storesArr) {
 function processForm(e) {
   e.preventDefault();
   var form = document.getElementById('newStoreForm');
-  addStore(form);
-  resetForm(form);
+  var validCustomerRange = validateMinMax(form.minCustomer.value, form.maxCustomer.value);
+  var noEmptyFields = validateFieldInput(form);
+
+  if (validCustomerRange && noEmptyFields) {
+    addStore(form);
+    resetForm(form);
+  }
 }
 
 function addStore(form) {
   var store = new Store(form.storeName.value, form.minCustomer.value, form.maxCustomer.value, form.averageCookies.value, hours);
   store.render();
   storeLog(store);
-  showAlert('success', 'GOOD JOB!');
+  showAlert('success', 'Good Job! Store added.');
 }
 
 function storeLog(store) {
@@ -102,12 +107,31 @@ function resetForm(form) {
 }
 
 function validateMinMax(min, max) {
-  // add some validation
+  if (min > max) {
+    //need to parse to numbers...?
+    showAlert('error', 'You idiot, min cannot be larger than max.');
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//FIXME:: This is not really working...
+function validateFieldInput(form) {
+  for (var prop in form) {
+    if (form.hasOwnProperty(prop)) {
+      if (form[prop].value === '' || form[prop].value === undefined) {
+        showAlert('error', 'Come on! You can\'t leave anything blank');
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 function showAlert(status, msg) {
   var alertEl = document.getElementById('formFeedback');
-
   var msgEl = createSiteElm('p', msg);
   msgEl.className = status;
   alertEl.appendChild(msgEl);
