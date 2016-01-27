@@ -16,7 +16,8 @@ Store.prototype.cookiePurchases = function(numCustomers, cookiesPerCust) {
 };
 
 Store.prototype.randomCustomer = function(min, max) {
-  return Math.random() * (max - min + 1) + min;
+  var rand = Math.floor(Math.random() * (max - min + 1)) + min;
+  return rand;
 };
 
 Store.prototype.generateCookieData = function(operatingHours) {
@@ -84,7 +85,7 @@ function processForm(e) {
 }
 
 function addStore(form) {
-  var store = new Store(form.storeName.value, form.minCustomer.value, form.maxCustomer.value, form.averageCookies.value, hours);
+  var store = new Store(form.storeName.value, parseInt(form.minCustomer.value), parseInt(form.maxCustomer.value), parseFloat(form.averageCookies.value), hours);
   store.render();
   storeLog(store);
   showAlert('success', 'Good Job! Store added.');
@@ -107,7 +108,7 @@ function resetForm(form) {
 }
 
 function validateMinMax(min, max) {
-  if (min > max) {
+  if (parseInt(min) > parseInt(max)) {
     //need to parse to numbers...?
     showAlert('error', 'You idiot, min cannot be larger than max.');
     return false;
