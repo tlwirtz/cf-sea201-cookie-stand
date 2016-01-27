@@ -12,11 +12,11 @@ function Store(name, min, max, avgCookies, operatingHoursArr) {
 }
 
 Store.prototype.cookiePurchases = function(numCustomers, cookiesPerCust) {
-  return Math.floor(numCustomers * cookiesPerCust);
+  return numCustomers * cookiesPerCust;
 };
 
 Store.prototype.randomCustomer = function(min, max) {
-  return Math.random() * ((max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 Store.prototype.generateCookieData = function(operatingHours) {
