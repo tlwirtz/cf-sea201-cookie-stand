@@ -76,9 +76,9 @@ function processForm(e) {
   e.preventDefault();
   var form = document.getElementById('newStoreForm');
   var validCustomerRange = validateMinMax(form.minCustomer.value, form.maxCustomer.value);
-  var noEmptyFields = validateFieldInput(form);
+  clearAlert();
 
-  if (validCustomerRange && noEmptyFields) {
+  if (validCustomerRange) {
     addStore(form);
     resetForm(form);
   }
@@ -117,25 +117,17 @@ function validateMinMax(min, max) {
   }
 }
 
-//FIXME:: This is not really working...
-function validateFieldInput(form) {
-  for (var prop in form) {
-    if (form.hasOwnProperty(prop)) {
-      if (form[prop].value === '' || form[prop].value === undefined) {
-        showAlert('error', 'Come on! You can\'t leave anything blank');
-        return false;
-      }
-    }
-  }
-
-  return true;
-}
-
 function showAlert(status, msg) {
   var alertEl = document.getElementById('formFeedback');
   var msgEl = createSiteElm('p', msg);
   msgEl.className = status;
   alertEl.appendChild(msgEl);
+}
+
+function clearAlert() {
+  var alertEl = document.getElementById('formFeedback');
+  var msgEl = alertEl.firstChild;
+  alertEl.removeChild(msgEl);
 }
 
 function initStores(storesArr) {
