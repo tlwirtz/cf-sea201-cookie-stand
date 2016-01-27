@@ -74,7 +74,7 @@ function renderStores(storesArr) {
 
 function processForm(e) {
   e.preventDefault();
-  var formEl = document.getElementById('newStoreForm');
+  var formEl = e.target;
   var formObj = {
     storeName: formEl.storeName.value,
     minCustomer: parseInt(formEl.minCustomer.value),
@@ -117,8 +117,10 @@ function resetForm(form) {
 
 function validateMinMax(min, max) {
   if (min > max) {
-    //need to parse to numbers...?
     showAlert('error', 'You idiot, min cannot be larger than max.');
+    return false;
+  } else if (isNaN(min) || isNaN(max)) {
+    showAlert('error', 'You\'re a Mornon! You didn\' enter a number');
     return false;
   } else {
     return true;
@@ -147,8 +149,8 @@ function initStores(storesArr) {
 
   renderStores(stores);
 
-  var buttonEl = document.getElementById('addStoreButton');
-  buttonEl.addEventListener('click', processForm, false);
+  var formEl = document.getElementById('newStoreForm');
+  formEl.addEventListener('submit', processForm, false);
 }
 
 window.onload = function() {
