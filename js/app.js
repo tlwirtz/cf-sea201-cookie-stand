@@ -81,10 +81,9 @@ function processForm(e) {
     maxCustomer: parseInt(formEl.maxCustomer.value),
     averageCookies: parseFloat(formEl.averageCookies.value),
   };
-
   var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
-  clearAlert();
 
+  clearAlert();
   if (validCustomerRange) {
     addStore(formObj);
     resetForm(formEl); // we want to work with the element directly
@@ -92,7 +91,6 @@ function processForm(e) {
 }
 
 function addStore(form) {
-  console.log(form);
   var store = new Store(form.storeName, form.minCustomer, form.maxCustomer, form.averageCookies, hours);
   store.render();
   storeLog(store);
