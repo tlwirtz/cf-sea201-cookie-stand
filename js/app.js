@@ -74,18 +74,26 @@ function renderStores(storesArr) {
 
 function processForm(e) {
   e.preventDefault();
-  var form = document.getElementById('newStoreForm');
-  var validCustomerRange = validateMinMax(form.minCustomer.value, form.maxCustomer.value);
+  var formEl = document.getElementById('newStoreForm');
+  var formObj = {
+    storeName: formEl.storeName.value,
+    minCustomer: parseInt(formEl.minCustomer.value),
+    maxCustomer: parseInt(formEl.maxCustomer.value),
+    averageCookies: parseFloat(formEl.averageCookies.value),
+  };
+
+  var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
   clearAlert();
 
   if (validCustomerRange) {
-    addStore(form);
-    resetForm(form);
+    addStore(formObj);
+    resetForm(formEl); // we want to work with the element directly
   }
 }
 
 function addStore(form) {
-  var store = new Store(form.storeName.value, parseInt(form.minCustomer.value), parseInt(form.maxCustomer.value), parseFloat(form.averageCookies.value), hours);
+  console.log(form);
+  var store = new Store(form.storeName, form.minCustomer, form.maxCustomer, form.averageCookies, hours);
   store.render();
   storeLog(store);
   showAlert('success', 'Good Job! Store added.');
@@ -108,7 +116,7 @@ function resetForm(form) {
 }
 
 function validateMinMax(min, max) {
-  if (parseInt(min) > parseInt(max)) {
+  if (min > max) {
     //need to parse to numbers...?
     showAlert('error', 'You idiot, min cannot be larger than max.');
     return false;
