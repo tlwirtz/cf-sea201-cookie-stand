@@ -181,6 +181,21 @@ function initForm() {
   //I want to create form fields based on the constructor object.
 }
 
+function createOptionsList() {
+  //TODO: Get this into the list. Or get rid of the list.
+
+  var selectEl = document.createElement('select');
+  selectEl.name = 'storeList';
+
+  for (var store in stores) {
+    var optionEl = createSiteElm('option', stores[store].storeName);
+    optionEl.value = stores[store].storeId;
+    selectEl.appendChild(optionEl);
+  }
+
+  document.getElementById('newStoreForm').appendChild(selectEl);
+}
+
 function initStores(storesArr) {
   var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, hours);
   var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, hours);
@@ -190,6 +205,7 @@ function initStores(storesArr) {
 
   initTable();
   renderStores(stores);
+  createOptionsList();
   var formEl = document.getElementById('newStoreForm');
   formEl.addEventListener('submit', processForm, false);
 }
