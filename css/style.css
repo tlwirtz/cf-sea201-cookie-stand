@@ -50,6 +50,37 @@ strong {
   font-weight: 400
 }
 
+table, tr, td, th {
+  padding: 10px;
+  text-align: right;
+}
+
+th {
+  color: rgba( 80, 192, 173, 1);
+  margin: 0px;
+  border: 0px;
+}
+
+.error {
+  width: 30%;
+  color: rgba(255, 255, 255, 255);
+  background-color: rgba(224,  35,  57, 1);
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.success {
+  width: 30%;
+  color: rgba(255, 255, 255, 255);
+  background-color: rgba( 65, 196,  31, 1);
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .white-text{
   color: rgba(255, 255, 255, 1);
 }
@@ -82,6 +113,9 @@ strong {
   font-weight: 200;
 }
 
+ul.no-bullets {
+  list-style-type: none;
+}
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
@@ -110,7 +144,6 @@ strong {
 .rgba-complement-2 { background-color: rgba(155, 238, 133, 1) }
 .rgba-complement-3 { background-color: rgba( 96, 216,  64, 1) }
 .rgba-complement-4 { background-color: rgba( 65, 196,  31, 1) }
-
 
 /* For Fonts */
 /* The Main Color */
