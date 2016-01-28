@@ -131,6 +131,7 @@ function validateAvgCookies(avgCookies) {
     showAlert('error', 'Dude, you did not enter a number of average cookies');
     return false;
   }
+
   return true;
 }
 
