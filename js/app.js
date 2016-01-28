@@ -43,9 +43,9 @@ Store.prototype.render = function() {
   var tabelEl = document.getElementById('storeDataTable');
   var rowEl = document.createElement('tr');
   var storeNameEl = createSiteElm('th', this.storeName, 'highlight');
-  rowEl.appendChild(storeNameEl);
-
   var hourlyCookieData = this.generateCookieData(this.opHours.length);
+
+  rowEl.appendChild(storeNameEl);
   for (var hour in hourlyCookieData) {
     rowEl.appendChild(createSiteElm('td', hourlyCookieData[hour]));
   }
