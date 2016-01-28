@@ -1,14 +1,18 @@
 var hours = ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
+var idCounter = 0;
 var stores = [];
 
 function Store(name, min, max, avgCookies, operatingHoursArr) {
+  this.storeId = idCounter;
   this.custMin = min;
   this.custMax = max;
   this.avgCookiePerCust = avgCookies;
   this.storeName = name;
   this.opHours = operatingHoursArr;
 
+  idCounter++;
   stores.push(this);
+  console.log(this);
 }
 
 Store.prototype.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -170,6 +174,11 @@ function initTable() {
   theadEl.appendChild(createSiteElm('th', 'Total'));
   tableEl.id = 'storeDataTable';
   mainSection.appendChild(tableEl);
+}
+
+function initForm() {
+  //TODO: this is where our form code will go.
+  //I want to create form fields based on the constructor object.
 }
 
 function initStores(storesArr) {
