@@ -50,6 +50,17 @@ strong {
   font-weight: 400
 }
 
+table, tr, td, th {
+  padding: 10px;
+  text-align: right;
+}
+
+th {
+  color: rgba( 80, 192, 173, 1);
+  margin: 0px;
+  border: 0px;
+}
+
 .error {
   width: 30%;
   color: rgba(255, 255, 255, 255);

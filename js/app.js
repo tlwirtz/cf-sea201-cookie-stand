@@ -44,7 +44,9 @@ Store.prototype.render = function() {
   // var sectionEl = document.createElement('section');
   var tabelEl = document.getElementById('storeDataTable');
   var rowEl = document.createElement('tr');
-  rowEl.appendChild(createSiteElm('th', this.storeName));
+  var storeNameEl = createSiteElm('th', this.storeName);
+  storeNameEl.className = 'highlight';
+  rowEl.appendChild(storeNameEl);
 
   var hourlyCookieData = this.generateCookieData(this.opHours.length);
   for (var hour in hourlyCookieData) {
@@ -161,7 +163,6 @@ function initStores(storesArr) {
 
   initTable();
   renderStores(stores);
-
   var formEl = document.getElementById('newStoreForm');
   formEl.addEventListener('submit', processForm, false);
 }
