@@ -52,7 +52,6 @@ Store.prototype.render = function() {
 
   rowEl.appendChild(createSiteElm('td', this.calcTotalCookies(hourlyCookieData)));
   tabelEl.appendChild(rowEl);
-
 };
 
 function createSiteElm(elType, text, className) {
@@ -82,9 +81,10 @@ function processForm(e) {
     averageCookies: parseFloat(formEl.averageCookies.value),
   };
   var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
+  var validStoreName = validateStoreName(formObj.storeName);
 
   clearAlert();
-  if (validCustomerRange) {
+  if (validCustomerRange && validStoreName) {
     addStore(formObj);
     resetForm(formEl); // we want to work with the element directly
   }
@@ -125,11 +125,18 @@ function validateMinMax(min, max) {
   }
 }
 
+function validateStoreName(storeName) {
+  if (storeName === '') {
+    showAlert('error', 'You Suck! You didn\'t even give your store a name');
+    return false;
+  }
+
+  return true;
+}
+
 function showAlert(status, msg) {
   var alertEl = document.getElementById('formFeedback');
   var msgEl = createSiteElm('p', msg, status);
-
-  // msgEl.className = status;
   alertEl.appendChild(msgEl);
 }
 
