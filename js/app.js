@@ -40,24 +40,22 @@ Store.prototype.calcTotalCookies = function(hourData) {
 };
 
 Store.prototype.render = function() {
-  var mainEl = document.getElementById('storeData');
-  var sectionEl = document.createElement('section');
-  var storeNameEl = createSiteElm('h2', this.storeName);
-  var hourListEl = createSiteElm('ul', '');
-  var hourlyCookieData = this.generateCookieData(this.opHours.length);
+  // var mainEl = document.getElementById('storeData');
+  // var sectionEl = document.createElement('section');
+  var tabelEl = document.getElementById('storeDataTable');
+  var rowEl = document.createElement('tr');
+  rowEl.appendChild(createSiteElm('th', this.storeName));
 
-  for (var hour in this.opHours) {
-    var liEl = createSiteElm('li', this.opHours[hour] + ': ' + hourlyCookieData[hour]);
-    hourListEl.appendChild(liEl);
+  var hourlyCookieData = this.generateCookieData(this.opHours.length);
+  for (var hour in hourlyCookieData) {
+    rowEl.appendChild(createSiteElm('td', hourlyCookieData[hour]));
   }
 
-  totalCookiesEl = createSiteElm('li', 'Total Cookies: ' + this.calcTotalCookies(hourlyCookieData));
-  totalCookiesEl.className = 'highlight ';
-  hourListEl.appendChild(totalCookiesEl);
-  sectionEl.appendChild(storeNameEl);
-  sectionEl.appendChild(hourListEl);
-  sectionEl.className = 'three-col';
-  mainEl.appendChild(sectionEl);
+  var totalCookiesEl = this.calcTotalCookies(hourlyCookieData);
+  totalCookiesEl.className = 'highlight';
+  rowEl.appendChild(createSiteElm('td', this.calcTotalCookies(hourlyCookieData)));
+  tabelEl.appendChild(rowEl);
+
 };
 
 function createSiteElm(elType, text) {
@@ -138,6 +136,22 @@ function clearAlert() {
   alertEl.removeChild(msgEl);
 }
 
+function initTable() {
+  var mainSection = document.getElementById('storeData');
+  var tableEl = document.createElement('table');
+  var theadEl = document.createElement('thead');
+  theadEl.appendChild(createSiteElm('th', 'Store Name'));
+
+  for (var hour in hours) {
+    theadEl.appendChild(createSiteElm('th', hours[hour]));
+    tableEl.appendChild(theadEl);
+  }
+
+  theadEl.appendChild(createSiteElm('th', 'Total'));
+  tableEl.id = 'storeDataTable';
+  mainSection.appendChild(tableEl);
+}
+
 function initStores(storesArr) {
   var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, hours);
   var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, hours);
@@ -145,6 +159,7 @@ function initStores(storesArr) {
   var bellevueSquare = new Store('Bellevue Square', 20, 48, 3.3, hours);
   var alki = new Store('Alki', 3, 24, 2.6, hours);
 
+  initTable();
   renderStores(stores);
 
   var formEl = document.getElementById('newStoreForm');
