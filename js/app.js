@@ -81,10 +81,11 @@ function processForm(e) {
     averageCookies: parseFloat(formEl.averageCookies.value),
   };
   var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
+  var validAvg = validateAvgCookies(formObj.averageCookies);
   var validStoreName = validateStoreName(formObj.storeName);
 
   clearAlert();
-  if (validCustomerRange && validStoreName) {
+  if (validCustomerRange && validStoreName && validAvg) {
     addStore(formObj);
     resetForm(formEl); // we want to work with the element directly
   }
@@ -123,6 +124,14 @@ function validateMinMax(min, max) {
   } else {
     return true;
   }
+}
+
+function validateAvgCookies(avgCookies) {
+  if (isNaN(avgCookies)) {
+    showAlert('error', 'Dude, you did not enter a number of average cookies');
+    return false;
+  }
+  return true;
 }
 
 function validateStoreName(storeName) {
