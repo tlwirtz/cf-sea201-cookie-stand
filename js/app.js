@@ -183,7 +183,7 @@ function initForm() {
 
 function createOptionsList() {
   //TODO: Get this into the list. Or get rid of the list.
-
+  var liEl = document.createElement('li');
   var selectEl = document.createElement('select');
   selectEl.name = 'storeList';
 
@@ -193,15 +193,17 @@ function createOptionsList() {
     selectEl.appendChild(optionEl);
   }
 
-  document.getElementById('newStoreForm').appendChild(selectEl);
+  liEl.appendChild(selectEl);
+  formEl = document.getElementById('newStoreForm');
+  console.log(formEl);
 }
 
 function initStores(storesArr) {
-  var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, hours);
-  var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, hours);
-  var southcenter = new Store('Southcenter Mall', 11, 28, 1.9, hours);
-  var bellevueSquare = new Store('Bellevue Square', 20, 48, 3.3, hours);
-  var alki = new Store('Alki', 3, 24, 2.6, hours);
+  new Store('Pike Place Market', 17, 88, 5.2, hours);
+  new Store('SeaTac Airport', 6, 24, 1.2, hours);
+  new Store('Southcenter Mall', 11, 28, 1.9, hours);
+  new Store('Bellevue Square', 20, 48, 3.3, hours);
+  new Store('Alki', 3, 24, 2.6, hours);
 
   initTable();
   renderStores(stores);
