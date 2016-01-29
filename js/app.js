@@ -102,15 +102,14 @@ function processForm(e) {
 
 function addStore(form) {
   var store = new Store(form.storeName, form.custMin, form.custMax, form.avgCookiePerCust, hours);
+  var storeListEl = document.getElementById('storeList');
   store.render();
   storeLog(store);
-  var storeListEl = document.getElementById('storeList');
   storeListEl.appendChild(addStoreToOptionList(store));
   showAlert('success', 'Good Job! Store added.');
 }
 
 function getStore(targetStoreId) {
-
   for (var store in stores) {
     if (stores[store].storeId === targetStoreId) {
       return stores[store];
@@ -120,7 +119,6 @@ function getStore(targetStoreId) {
 
 function updateStore(newData, store) {
   for (var prop in newData) {
-    console.log('my property: ' + prop);
     if (store.hasOwnProperty(prop)) {
       store[prop] = newData[prop];
     }
@@ -207,7 +205,7 @@ function initTable() {
 function createOptionsList() {
   var liEl = document.getElementById('optionListHere');
   var selectEl = document.createElement('select');
-  var optionEl = createSiteElm('option', 'New Store');
+  var optionEl = createSiteElm('option', 'Add New Store');
   optionEl.value = 'newStore';
   selectEl.name = 'storeList';
   selectEl.id = 'storeList';
