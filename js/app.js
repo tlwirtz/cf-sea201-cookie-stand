@@ -104,6 +104,8 @@ function addStore(form) {
   var store = new Store(form.storeName, form.custMin, form.custMax, form.avgCookiePerCust, hours);
   store.render();
   storeLog(store);
+  var storeListEl = document.getElementById('storeList');
+  storeListEl.appendChild(addStoreToOptionList(store));
   showAlert('success', 'Good Job! Store added.');
 }
 
@@ -183,7 +185,7 @@ function showAlert(status, msg) {
 
 function clearAlert() {
   var alertEl = document.getElementById('formFeedback');
-  alertEl.innerHTML = ''
+  alertEl.innerHTML = '';
 }
 
 function initTable() {
@@ -212,12 +214,17 @@ function createOptionsList() {
   selectEl.appendChild(optionEl);
 
   for (var store in stores) {
-    optionEl = createSiteElm('option', stores[store].storeName);
-    optionEl.value = stores[store].storeId;
+    optionEl = addStoreToOptionList(stores[store]);
     selectEl.appendChild(optionEl);
   }
 
   liEl.appendChild(selectEl);
+}
+
+function addStoreToOptionList(store) {
+  var optionEl = createSiteElm('option', store.storeName);
+  optionEl.value = store.storeId;
+  return optionEl;
 }
 
 function onOptionListChange(event) {
