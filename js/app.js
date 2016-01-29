@@ -80,13 +80,13 @@ function processForm(e) {
   var formEl = e.target;
   var formObj = {
     storeName: formEl.storeName.value,
-    minCustomer: parseInt(formEl.custMin.value),
-    maxCustomer: parseInt(formEl.custMax.value),
-    averageCookies: parseFloat(formEl.avgCookiePerCust.value),
+    custMin: parseInt(formEl.custMin.value),
+    custMax: parseInt(formEl.custMax.value),
+    avgCookiePerCust: parseFloat(formEl.avgCookiePerCust.value),
     storeId: parseInt(formEl.storeList.value),
   };
-  var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
-  var validAvg = validateAvgCookies(formObj.averageCookies);
+  var validCustomerRange = validateMinMax(formObj.custMin, formObj.custMax);
+  var validAvg = validateAvgCookies(formObj.avgCookiePerCust);
   var validStoreName = validateStoreName(formObj.storeName);
 
   clearAlert();
@@ -101,7 +101,7 @@ function processForm(e) {
 }
 
 function addStore(form) {
-  var store = new Store(form.storeName, form.minCustomer, form.maxCustomer, form.averageCookies, hours);
+  var store = new Store(form.storeName, form.custMin, form.custMax, form.avgCookiePerCust, hours);
   store.render();
   storeLog(store);
   showAlert('success', 'Good Job! Store added.');
@@ -118,10 +118,13 @@ function getStore(targetStoreId) {
 
 function updateStore(newData, store) {
   for (var prop in newData) {
-    if (store.hasOwnProperty(newData[prop])) {
+    console.log('my property: ' + prop);
+    if (store.hasOwnProperty(prop)) {
       store[prop] = newData[prop];
     }
   }
+
+  renderStores(stores);
 }
 
 function storeLog(store) {
