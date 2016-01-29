@@ -80,9 +80,9 @@ function processForm(e) {
   var formEl = e.target;
   var formObj = {
     storeName: formEl.storeName.value,
-    minCustomer: parseInt(formEl.minCustomer.value),
-    maxCustomer: parseInt(formEl.maxCustomer.value),
-    averageCookies: parseFloat(formEl.averageCookies.value),
+    minCustomer: parseInt(formEl.custMin.value),
+    maxCustomer: parseInt(formEl.custMax.value),
+    averageCookies: parseFloat(formEl.avgCookiePerCust.value),
   };
   var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
   var validAvg = validateAvgCookies(formObj.averageCookies);
@@ -181,6 +181,7 @@ function createOptionsList() {
   var selectEl = document.createElement('select');
   var optionEl = createSiteElm('option', 'New Store');
   selectEl.name = 'storeList';
+  selectEl.id = 'storeList';
   selectEl.appendChild(optionEl);
 
   for (var store in stores) {
@@ -190,6 +191,25 @@ function createOptionsList() {
   }
 
   liEl.appendChild(selectEl);
+}
+
+function onOptionListChange(event) {
+  event.preventDefault();
+  var targetStoreId = parseInt(event.target.value);
+
+  for (var store in stores) {
+    if (stores[store].storeId === targetStoreId) {
+      updateFieldValues(document.getElementById('newStoreForm'), stores[store]);
+    }
+  }
+}
+
+function updateFieldValues(form, store) {
+  for (var prop in store) {
+    if (form.hasOwnProperty(prop) && store.hasOwnProperty(prop)) {
+      form[prop].value = store[prop];
+    }
+  }
 }
 
 function initStores(storesArr) {
@@ -204,6 +224,9 @@ function initStores(storesArr) {
   createOptionsList();
   var formEl = document.getElementById('newStoreForm');
   formEl.addEventListener('submit', processForm, false);
+
+  var optionEl = document.getElementById('storeList');
+  optionEl.addEventListener('change', onOptionListChange, false);
 }
 
 window.onload = function() {
