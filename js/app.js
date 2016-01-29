@@ -176,19 +176,15 @@ function initTable() {
   mainSection.appendChild(tableEl);
 }
 
-function initForm() {
-  //TODO: this is where our form code will go.
-  //I want to create form fields based on the constructor object.
-}
-
 function createOptionsList() {
-  //TODO: Get this into the list. Or get rid of the list.
   var liEl = document.getElementById('optionListHere');
   var selectEl = document.createElement('select');
+  var optionEl = createSiteElm('option', 'New Store');
   selectEl.name = 'storeList';
+  selectEl.appendChild(optionEl);
 
   for (var store in stores) {
-    var optionEl = createSiteElm('option', stores[store].storeName);
+    optionEl = createSiteElm('option', stores[store].storeName);
     optionEl.value = stores[store].storeId;
     selectEl.appendChild(optionEl);
   }
