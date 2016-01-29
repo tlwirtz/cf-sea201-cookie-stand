@@ -83,6 +83,7 @@ function processForm(e) {
     minCustomer: parseInt(formEl.custMin.value),
     maxCustomer: parseInt(formEl.custMax.value),
     averageCookies: parseFloat(formEl.avgCookiePerCust.value),
+    storeId: parseInt(formEl.storeList.value),
   };
   var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
   var validAvg = validateAvgCookies(formObj.averageCookies);
@@ -90,8 +91,12 @@ function processForm(e) {
 
   clearAlert();
   if (validCustomerRange && validStoreName && validAvg) {
-    addStore(formObj);
-    resetForm(formEl); // we want to work with the element directly
+    if (doesStoreExist(formObj.storeId)) {
+      updateStore(formObj, getStore(formObj.storeId));
+    } else {
+      addStore(formObj);
+      resetForm(formEl); // we want to work with the element directly
+    }
   }
 }
 
@@ -100,6 +105,23 @@ function addStore(form) {
   store.render();
   storeLog(store);
   showAlert('success', 'Good Job! Store added.');
+}
+
+function getStore(targetStoreId) {
+
+  for (var store in stores) {
+    if (stores[store].storeId === targetStoreId) {
+      return stores[store];
+    }
+  }
+}
+
+function updateStore(newData, store) {
+  for (var prop in newData) {
+    if (store.hasOwnProperty(newData[prop])) {
+      store[prop] = newData[prop];
+    }
+  }
 }
 
 function storeLog(store) {
@@ -180,6 +202,7 @@ function createOptionsList() {
   var liEl = document.getElementById('optionListHere');
   var selectEl = document.createElement('select');
   var optionEl = createSiteElm('option', 'New Store');
+  optionEl.value = 'newStore';
   selectEl.name = 'storeList';
   selectEl.id = 'storeList';
   selectEl.appendChild(optionEl);
@@ -197,11 +220,19 @@ function onOptionListChange(event) {
   event.preventDefault();
   var targetStoreId = parseInt(event.target.value);
 
+  if (doesStoreExist(targetStoreId)) {
+    updateFieldValues(document.getElementById('newStoreForm'), getStore(targetStoreId));
+  }
+}
+
+function doesStoreExist(targetStoreId) {
   for (var store in stores) {
     if (stores[store].storeId === targetStoreId) {
-      updateFieldValues(document.getElementById('newStoreForm'), stores[store]);
+      return true;
     }
   }
+
+  return false;
 }
 
 function updateFieldValues(form, store) {
