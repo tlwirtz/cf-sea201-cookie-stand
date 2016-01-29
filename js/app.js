@@ -1,6 +1,7 @@
 var hours = ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
 var stores = [];
 
+//=================== CONSTRUCTORS & PROTOTYPING ===================//
 function Store(name, min, max, avgCookies, operatingHoursArr) {
   this.custMin = min;
   this.custMax = max;
@@ -54,6 +55,7 @@ Store.prototype.render = function() {
   tabelEl.appendChild(rowEl);
 };
 
+//=================== HELPER FUNCTIONS ===================//
 function createSiteElm(elType, text, className) {
   var siteEl = document.createElement(elType);
   siteEl.textContent = text;
@@ -156,6 +158,7 @@ function clearAlert() {
   alertEl.removeChild(msgEl);
 }
 
+//=================== PAGE INIT ===================//
 function initTable() {
   var mainSection = document.getElementById('storeData');
   var tableEl = document.createElement('table');
