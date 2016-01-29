@@ -124,6 +124,8 @@ function updateStore(newData, store) {
     }
   }
 
+  initTable();
+  removeDataRows();
   renderStores(stores);
 }
 
@@ -181,8 +183,7 @@ function showAlert(status, msg) {
 
 function clearAlert() {
   var alertEl = document.getElementById('formFeedback');
-  var msgEl = alertEl.firstChild;
-  alertEl.removeChild(msgEl);
+  alertEl.innerHTML = ''
 }
 
 function initTable() {
@@ -244,6 +245,11 @@ function updateFieldValues(form, store) {
       form[prop].value = store[prop];
     }
   }
+}
+
+function removeDataRows() {
+  var tableEl = document.getElementById('storeDataTable');
+  tableEl.parentNode.removeChild(tableEl);
 }
 
 function initStores(storesArr) {
