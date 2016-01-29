@@ -183,7 +183,7 @@ function initForm() {
 
 function createOptionsList() {
   //TODO: Get this into the list. Or get rid of the list.
-  var liEl = document.createElement('li');
+  var liEl = document.getElementById('optionListHere');
   var selectEl = document.createElement('select');
   selectEl.name = 'storeList';
 
@@ -194,8 +194,6 @@ function createOptionsList() {
   }
 
   liEl.appendChild(selectEl);
-  formEl = document.getElementById('newStoreForm');
-  console.log(formEl);
 }
 
 function initStores(storesArr) {
