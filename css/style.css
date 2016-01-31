@@ -8,6 +8,8 @@ body {
 
 main {
   padding: 10px;
+  overflow:auto;
+  padding-bottom: 100px;
 }
 
 h1 {
@@ -46,11 +48,6 @@ header {
 
 header > h1 {
   color: rgba(255, 255, 255, 1);
-}
-
-main {
-  overflow:auto;
-	padding-bottom: 100px;
 }
 
 footer {
