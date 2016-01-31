@@ -46,6 +46,15 @@ header > h1 {
   color: rgba(255, 255, 255, 1);
 }
 
+footer {
+  background-color: rgba(248, 104, 121, 1);
+  width: 100%;
+  height: 200px;
+  bottom: 0px;
+  position: absolute;;
+  /*Thanks SO -- http://stackoverflow.com/questions/2971401/how-to-anchor-a-div-to-the-bottom-of-a-page*/
+}
+
 strong {
   font-weight: 400
 }
@@ -60,6 +69,13 @@ th {
   margin: 0px;
   border: 0px;
 }
+
+ .center{
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
 
 .error {
   width: 30%;
@@ -93,6 +109,18 @@ th {
   margin-right: auto;
 }
 
+.logo-section {
+  width: 30%;
+  padding: 1%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo {
+  height: 120px
+
+}
+
 .header-font {
   font-size: 2em;
   font-weight: lighter;
@@ -100,8 +128,15 @@ th {
   padding: 5px;
 }
 
+.footer-font {
+  font-size: 1em;
+  font-weight: lighter;
+  padding: 5px;
+  color: rgba(255, 255, 255, 1);
+}
+
 .push {
-  margin: 120px;
+  margin: 500px;
 }
 
 .color-block {
@@ -115,6 +150,22 @@ th {
 
 ul.no-bullets {
   list-style-type: none;
+}
+
+.tag-line-section {
+  padding: 1%;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tag-line {
+  color: rgba(255, 167, 107, 1);
+  font-size: 0.5em:
+  font-weight: lighter;
+  text-align: center;
 }
 
 /* The Main Color */
