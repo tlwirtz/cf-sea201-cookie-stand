@@ -1,5 +1,6 @@
 stores = [];
 events = [];
+items = [];
 
 function StoreAddress(location, phone, address1, address2, city, state, zip, storecode) {
   this.storeName = location;
@@ -96,23 +97,79 @@ function createSiteElm(elType, text, className) {
   return siteEl;
 }
 
-function init() {
+function Merchandise(itemName, itemPrice, itemDescrip, imageSrc) {
+  this.itemName = itemName;
+  this.itemPrice = itemPrice;
+  this.itemDescrip = itemDescrip;
+  this.imageSrc = imageSrc;
+
+  items.push(this);
+}
+
+Merchandise.prototype.render = function() {
+  var parentEl = document.getElementById('merch');
+  var itemSectionEl = createSiteElm('section', '', 'three-col');
+  var headingEl = createSiteElm('h2', this.itemName);
+  var itemImg = createSiteElm('img', '', 'merch');
+  itemImg.src = this.imageSrc;
+
+  var attributeList = createSiteElm('ul', '', 'no-bullets');
+  attributeList.appendChild(createSiteElm('li', this.itemPrice));
+  attributeList.appendChild(createSiteElm('li', this.itemDescrip));
+
+  itemSectionEl.appendChild(headingEl);
+  itemSectionEl.appendChild(itemImg);
+  itemSectionEl.appendChild(attributeList);
+
+  parentEl.appendChild(itemSectionEl);
+};
+
+function storeAddresInit() {
   new StoreAddress('Pike Place', '425-555-5555', '5020 cool street', 'unit 1', 'seattle', 'wa', '98270', 'pike-place');
   new StoreAddress('Alki', '425-555-5555', '5020 cool street', 'unit 1', 'seattle', 'wa', '98270', 'alki');
   new StoreAddress('SeaTac Airport', '425-555-5555', '5020 cool street', 'unit 1', 'seattle', 'wa', '98270', 'sea-tac');
   new StoreAddress('Bellevue Square', '425-555-5555', '5020 cool street', 'unit 1', 'seattle', 'wa', '98270', 'bellevue');
   new StoreAddress('Southcenter', '425-555-5555', '5020 cool street', 'unit 1', 'seattle', 'wa', '98270', 'southcenter');
+}
 
-  new Event('Fish Throw', 'Space Needle', 'March 01 2016', '1:00 PM - 5:00 PM', 'Throwing fish off the space needle. If you hit a bicyclist, you win a prize.');
-  new Event('Pat\'s Pop Up Store', 'MOHAI', 'Feb 01 2016', '1:00 PM - 1:10 PM', 'An amazing pop up store. We will be offering limited edition cookies that will only be avaible at our pop-up store. Only a few lucky people will ever get to taste these amazing cookies.');
-
+function renderStores(stores) {
   for (var store in stores) {
     stores[store].render();
   }
+}
 
+function eventsInit() {
+  new Event('Fish Throw', 'Space Needle', 'March 01 2016', '1:00 PM - 5:00 PM', 'Throwing fish off the space needle. If you hit a bicyclist, you win a prize.');
+  new Event('Pat\'s Pop Up Store', 'MOHAI', 'Feb 01 2016', '1:00 PM - 1:10 PM', 'An amazing pop up store. We will be offering limited edition cookies that will only be avaible at our pop-up store. Only a few lucky people will ever get to taste these amazing cookies.');
+}
+
+function renderEvents(events) {
   for (var event in events) {
     events[event].render();
   }
+}
+
+function merchInit() {
+  var fakeDescript =  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+  var src = 'imgs/shirt.jpg';
+  new Merchandise('Cool Shirt', '$25.00', fakeDescript, src);
+  new Merchandise('Awesome Shirt', '$35.00', fakeDescript, src);
+  new Merchandise('Groovy Shirt', '$12.00', fakeDescript, src);
+}
+
+function renderMerch(items) {
+  for (var item in items) {
+    items[item].render();
+  }
+}
+
+function init() {
+  storeAddresInit();
+  renderStores(stores);
+  eventsInit();
+  renderEvents(events);
+  merchInit();
+  renderMerch(items);
 }
 
 init();
