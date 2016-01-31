@@ -59,7 +59,6 @@ function Event(eventName, eventLocation, date, time, eventDescrip) {
 }
 
 Event.prototype.render = function() {
-  //some render stuff here.
   var eventListEl = document.getElementById('event-list');
   var eventSection = createSiteElm('section');
   var headingEl = createSiteElm('h2', this.eventName);
