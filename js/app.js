@@ -1,15 +1,19 @@
 var hours = ['10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
+var idCounter = 0;
 var stores = [];
 
 //=================== CONSTRUCTORS & PROTOTYPING ===================//
 function Store(name, min, max, avgCookies, operatingHoursArr) {
+  this.storeId = idCounter;
   this.custMin = min;
   this.custMax = max;
   this.avgCookiePerCust = avgCookies;
   this.storeName = name;
   this.opHours = operatingHoursArr;
 
+  idCounter++;
   stores.push(this);
+  console.log(this);
 }
 
 Store.prototype.cookiePurchases = function(numCustomers, cookiesPerCust) {
@@ -68,7 +72,7 @@ function createSiteElm(elType, text, className) {
 }
 
 function renderStores(storesArr) {
-  for (var store  in storesArr) {
+  for (var store in storesArr) {
     storesArr[store].render();
   }
 }
@@ -78,26 +82,58 @@ function processForm(e) {
   var formEl = e.target;
   var formObj = {
     storeName: formEl.storeName.value,
-    minCustomer: parseInt(formEl.minCustomer.value),
-    maxCustomer: parseInt(formEl.maxCustomer.value),
-    averageCookies: parseFloat(formEl.averageCookies.value),
+    custMin: parseInt(formEl.custMin.value),
+    custMax: parseInt(formEl.custMax.value),
+    avgCookiePerCust: parseFloat(formEl.avgCookiePerCust.value),
+    storeId: parseInt(formEl.storeList.value),
   };
-  var validCustomerRange = validateMinMax(formObj.minCustomer, formObj.maxCustomer);
-  var validAvg = validateAvgCookies(formObj.averageCookies);
-  var validStoreName = validateStoreName(formObj.storeName);
 
   clearAlert();
-  if (validCustomerRange && validStoreName && validAvg) {
-    addStore(formObj);
-    resetForm(formEl); // we want to work with the element directly
+  if (validStore(formObj)) {
+    if (doesStoreExist(formObj.storeId)) {
+      updateStore(formObj, getStore(formObj.storeId));
+    } else {
+      addStore(formObj);
+      resetForm(formEl); // we want to work with the element directly
+    }
   }
 }
 
+function validStore(formObj) {
+  var validCustomerRange = validateMinMax(formObj.custMin, formObj.custMax);
+  var validAvg = validateAvgCookies(formObj.avgCookiePerCust);
+  var validStoreName = validateStoreName(formObj.storeName);
+
+  return (validCustomerRange && validStoreName && validAvg);
+}
+
 function addStore(form) {
-  var store = new Store(form.storeName, form.minCustomer, form.maxCustomer, form.averageCookies, hours);
+  var store = new Store(form.storeName, form.custMin, form.custMax, form.avgCookiePerCust, hours);
+  var storeListEl = document.getElementById('storeList');
   store.render();
   storeLog(store);
+  storeListEl.appendChild(addStoreToOptionList(store));
   showAlert('success', 'Good Job! Store added.');
+}
+
+function getStore(targetStoreId) {
+  for (var store in stores) {
+    if (stores[store].storeId === targetStoreId) {
+      return stores[store];
+    }
+  }
+}
+
+function updateStore(newData, store) {
+  for (var prop in newData) {
+    if (store.hasOwnProperty(prop)) {
+      store[prop] = newData[prop];
+    }
+  }
+
+  initTable();
+  removeDataRows();
+  renderStores(stores);
 }
 
 function storeLog(store) {
@@ -154,8 +190,7 @@ function showAlert(status, msg) {
 
 function clearAlert() {
   var alertEl = document.getElementById('formFeedback');
-  var msgEl = alertEl.firstChild;
-  alertEl.removeChild(msgEl);
+  alertEl.innerHTML = '';
 }
 
 //=================== PAGE INIT ===================//
@@ -175,17 +210,76 @@ function initTable() {
   mainSection.appendChild(tableEl);
 }
 
+function createOptionsList() {
+  var liEl = document.getElementById('optionListHere');
+  var selectEl = document.createElement('select');
+  var optionEl = createSiteElm('option', 'Add New Store');
+  optionEl.value = 'newStore';
+  selectEl.name = 'storeList';
+  selectEl.id = 'storeList';
+  selectEl.appendChild(optionEl);
+
+  for (var store in stores) {
+    optionEl = addStoreToOptionList(stores[store]);
+    selectEl.appendChild(optionEl);
+  }
+
+  liEl.appendChild(selectEl);
+}
+
+function addStoreToOptionList(store) {
+  var optionEl = createSiteElm('option', store.storeName);
+  optionEl.value = store.storeId;
+  return optionEl;
+}
+
+function onOptionListChange(event) {
+  event.preventDefault();
+  var targetStoreId = parseInt(event.target.value);
+
+  if (doesStoreExist(targetStoreId)) {
+    updateFieldValues(document.getElementById('newStoreForm'), getStore(targetStoreId));
+  }
+}
+
+function doesStoreExist(targetStoreId) {
+  for (var store in stores) {
+    if (stores[store].storeId === targetStoreId) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function updateFieldValues(form, store) {
+  for (var prop in store) {
+    if (form.hasOwnProperty(prop) && store.hasOwnProperty(prop)) {
+      form[prop].value = store[prop];
+    }
+  }
+}
+
+function removeDataRows() {
+  var tableEl = document.getElementById('storeDataTable');
+  tableEl.parentNode.removeChild(tableEl);
+}
+
 function initStores(storesArr) {
-  var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, hours);
-  var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, hours);
-  var southcenter = new Store('Southcenter Mall', 11, 28, 1.9, hours);
-  var bellevueSquare = new Store('Bellevue Square', 20, 48, 3.3, hours);
-  var alki = new Store('Alki', 3, 24, 2.6, hours);
+  new Store('Pike Place Market', 17, 88, 5.2, hours);
+  new Store('SeaTac Airport', 6, 24, 1.2, hours);
+  new Store('Southcenter Mall', 11, 28, 1.9, hours);
+  new Store('Bellevue Square', 20, 48, 3.3, hours);
+  new Store('Alki', 3, 24, 2.6, hours);
 
   initTable();
   renderStores(stores);
+  createOptionsList();
   var formEl = document.getElementById('newStoreForm');
   formEl.addEventListener('submit', processForm, false);
+
+  var optionEl = document.getElementById('storeList');
+  optionEl.addEventListener('change', onOptionListChange, false);
 }
 
 window.onload = function() {
