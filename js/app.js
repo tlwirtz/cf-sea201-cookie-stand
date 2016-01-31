@@ -85,12 +85,9 @@ function processForm(e) {
     avgCookiePerCust: parseFloat(formEl.avgCookiePerCust.value),
     storeId: parseInt(formEl.storeList.value),
   };
-  var validCustomerRange = validateMinMax(formObj.custMin, formObj.custMax);
-  var validAvg = validateAvgCookies(formObj.avgCookiePerCust);
-  var validStoreName = validateStoreName(formObj.storeName);
 
   clearAlert();
-  if (validCustomerRange && validStoreName && validAvg) {
+  if (validStore(formObj)) {
     if (doesStoreExist(formObj.storeId)) {
       updateStore(formObj, getStore(formObj.storeId));
     } else {
@@ -98,6 +95,14 @@ function processForm(e) {
       resetForm(formEl); // we want to work with the element directly
     }
   }
+}
+
+function validStore(formObj) {
+  var validCustomerRange = validateMinMax(formObj.custMin, formObj.custMax);
+  var validAvg = validateAvgCookies(formObj.avgCookiePerCust);
+  var validStoreName = validateStoreName(formObj.storeName);
+
+  return (validCustomerRange && validStoreName && validAvg);
 }
 
 function addStore(form) {
