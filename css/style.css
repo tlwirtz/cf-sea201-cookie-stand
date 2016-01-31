@@ -14,7 +14,7 @@ h1 {
   font-size: 1.75em;
   color: rgba(74, 73, 74, 1);
   text-transform: uppercase;
-  padding: 2%;
+  padding: 25px;
 }
 
 h2 {
@@ -214,6 +214,11 @@ img.merch {
   float: left;
   margin-right: 5px;
 }
+
+h1.section-heading {
+  border-bottom: 1px solid rgba(73, 74, 73, 1);
+}
+
 
 
 /* The Main Color */
