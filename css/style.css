@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Work Sans', sans-serif;
   color: rgba(74, 73, 74, 1);
@@ -13,6 +14,7 @@ h1 {
   font-size: 1.75em;
   color: rgba(74, 73, 74, 1);
   text-transform: uppercase;
+  padding: 25px;
 }
 
 h2 {
@@ -46,6 +48,22 @@ header > h1 {
   color: rgba(255, 255, 255, 1);
 }
 
+main {
+  overflow:auto;
+	padding-bottom: 100px;
+}
+
+footer {
+  background-color: rgba(248, 104, 121, 1);
+  position: relative;
+  width: 100%;
+	margin-top:0px; /* negative value of footer height */
+	height: 300px;
+	clear:both;
+  bottom: 0px;
+  text-align: center;
+}
+
 strong {
   font-weight: 400
 }
@@ -59,6 +77,38 @@ th {
   color: rgba( 80, 192, 173, 1);
   margin: 0px;
   border: 0px;
+}
+
+address {
+  font-size: 1em;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+#event-map {
+  padding: 25px;
+  width: 680px;
+  display: inline-block;
+}
+
+#event-list {
+  display: inline-block;
+  vertical-align: top;
+  width: 35%
+}
+
+.stores {
+  width: 16%;
+  display: inline-block;
+  color: rgba(255, 255, 255, 1);
+  padding: 2%;
+  vertical-align: top;
+}
+
+.center{
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
 }
 
 .error {
@@ -86,11 +136,24 @@ th {
 }
 
 .three-col {
-  width: 25%;
+  width: 29%;
   display: inline-block;
   padding: 2%;
   margin-left: auto;
   margin-right: auto;
+  vertical-align: top;
+}
+
+.logo-section {
+  width: 30%;
+  padding: 1%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo {
+  height: 120px
+
 }
 
 .header-font {
@@ -100,8 +163,15 @@ th {
   padding: 5px;
 }
 
+.footer-font {
+  font-size: 1em;
+  font-weight: lighter;
+  padding: 5px;
+  color: rgba(255, 255, 255, 1);
+}
+
 .push {
-  margin: 120px;
+  margin: 325px;
 }
 
 .color-block {
@@ -116,6 +186,40 @@ th {
 ul.no-bullets {
   list-style-type: none;
 }
+
+.tag-line-section {
+  padding: 1%;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tag-line {
+  color: rgba(255, 167, 107, 1);
+  font-size: 0.5em:
+  font-weight: lighter;
+  text-align: center;
+}
+
+img.merch {
+  width: 150px;
+  height: 150px;
+  border-width: thin;
+  border-style: solid;
+  border-color: rgba(73, 74, 73, 1);
+  border-radius: 5px;
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+}
+
+h1.section-heading {
+  border-bottom: 1px solid rgba(73, 74, 73, 1);
+}
+
+
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
