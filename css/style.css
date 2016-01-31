@@ -14,6 +14,7 @@ h1 {
   font-size: 1.75em;
   color: rgba(74, 73, 74, 1);
   text-transform: uppercase;
+  padding: 2%;
 }
 
 h2 {
@@ -75,6 +76,17 @@ th {
   color: rgba( 80, 192, 173, 1);
   margin: 0px;
   border: 0px;
+}
+
+#event-map {
+  padding: 25px;
+  width: 680px;
+  display: inline-block;
+}
+
+#event-list {
+  display: inline-block;
+  vertical-align: top;
 }
 
  .center{
@@ -174,11 +186,7 @@ ul.no-bullets {
   font-weight: lighter;
   text-align: center;
 }
-/*.content-sections {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}*/
+
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
