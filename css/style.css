@@ -203,6 +203,18 @@ ul.no-bullets {
   text-align: center;
 }
 
+img.merch {
+  width: 150px;
+  height: 150px;
+  border-width: thin;
+  border-style: solid;
+  border-color: rgba(73, 74, 73, 1);
+  border-radius: 5px;
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+}
+
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
