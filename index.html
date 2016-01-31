@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pat's Salmon Cookie Store</title>
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,200" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body>
-    <header>
-      <h1 class="header-font">Pat's Salmon Cookie Store</h1>
-    </header>
 
-    <section class="push">
-      <!-- this is empty to compensate for the header & prompt boxes -->
+<head>
+  <meta charset="utf-8">
+  <title>Pat's Salmon Cookie Store</title>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,200" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <header>
+    <h1 class="header-font">Pat's Salmon Cookie Store</h1>
+  </header>
+
+  <section class="push">
+    <!-- this is empty to compensate for the header & prompt boxes -->
+  </section>
+
+  <main>
+    <section id="storeData">
+      <h1>Store Data</h1>
     </section>
 
-    <main>
-      <section id="storeData" >
-        <h1>Store Data</h1>
-      </section>
-
-      <section id="adminForm">
-        <h1>Add Another Store</h1>
-        <p>Fill out the form below and select <span class="highlight">Add Store</span> to create a new store with default hours</p>
-      </section>
+    <section id="adminForm">
+      <h1>Add Another Store</h1>
+      <p>Fill out the form below and select <span class="highlight">Add Store</span> to create a new store with default hours</p>
 
       <form class="new-store-form" action="index.html" method="post" id="newStoreForm">
         <ul class="no-bullets">
@@ -53,12 +54,14 @@
           </li>
         </ul>
       </form>
-
       <section id="formFeedback" class="">
 
       </section>
-    </main>
+    </section>
+  </main>
 
-    <script type="text/javascript" src="js/app.js" > </script>
-  </body>
+  <script type="text/javascript" src="js/app.js">
+  </script>
+</body>
+
 </html>
