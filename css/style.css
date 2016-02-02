@@ -8,7 +8,7 @@ body {
 
 main {
   padding: 10px;
-  overflow:auto;
+  overflow: auto;
   padding-bottom: 50px;
 }
 
@@ -16,7 +16,7 @@ h1 {
   font-size: 1.75em;
   color: rgba(74, 73, 74, 1);
   text-transform: uppercase;
-  padding: 25px;
+  padding: 5px;
 }
 
 h2 {
@@ -32,6 +32,7 @@ h3 {
 p, li {
   font-size: 1em;
   font-weight: 200;
+  padding: 5px;
 }
 
 code {
@@ -55,7 +56,7 @@ footer {
   position: relative;
   width: 100%;
 	margin-top:0px; /* negative value of footer height */
-	height: 300px;
+	height: 200px;
 	clear:both;
   bottom: 0px;
   text-align: center;
@@ -132,10 +133,6 @@ address {
   padding: 5px;
 }
 
-.white-text{
-  color: rgba(255, 255, 255, 1);
-}
-
 .three-col {
   width: 29%;
   display: inline-block;
@@ -207,7 +204,6 @@ li.navigation > a {
   text-align: center;
   font-size: 1.25em;
   text-transform: uppercase;
-
 }
 
 li.navigation > a:hover {
@@ -253,6 +249,7 @@ img.merch {
 .section-heading{
   margin: 0;
 }
+
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
 .rgba-primary-1  { background-color: rgba(253, 184, 192, 1); }

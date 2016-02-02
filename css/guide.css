@@ -50,10 +50,6 @@ strong {
   font-weight: 400
 }
 
-.white-text{
-  color: rgba(255, 255, 255, 1);
-}
-
 .three-col {
   width: 25%;
   display: inline-block;
