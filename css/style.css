@@ -214,6 +214,10 @@ li.selected > a {
   border-bottom: 1px solid;
 }
 
+li.formField {
+  padding: 15px;
+}
+
 .tag-line-section {
   padding: 1%;
   width: 100%;
