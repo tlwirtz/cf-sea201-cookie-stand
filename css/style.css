@@ -9,7 +9,7 @@ body {
 main {
   padding: 10px;
   overflow:auto;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 h1 {
@@ -65,15 +65,19 @@ strong {
   font-weight: 400
 }
 
-table, tr, td, th {
+table, tr, td, th, thead {
   padding: 10px;
   text-align: right;
+  margin: 0px;
+  border-spacing: 0px;
+}
+
+tr:hover{
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 th {
   color: rgba( 80, 192, 173, 1);
-  margin: 0px;
-  border: 0px;
 }
 
 address {
@@ -246,10 +250,9 @@ img.merch {
   margin: 15px;
 }
 
-h1.section-heading {
-  border-bottom: 1px solid rgba(73, 74, 73, 1);
+.section-heading{
+  margin: 0;
 }
-
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
 .rgba-primary-1  { background-color: rgba(253, 184, 192, 1); }
