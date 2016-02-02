@@ -8,15 +8,15 @@ body {
 
 main {
   padding: 10px;
-  overflow:auto;
-  padding-bottom: 100px;
+  overflow: auto;
+  padding-bottom: 50px;
 }
 
 h1 {
   font-size: 1.75em;
   color: rgba(74, 73, 74, 1);
   text-transform: uppercase;
-  padding: 25px;
+  padding: 5px;
 }
 
 h2 {
@@ -32,6 +32,7 @@ h3 {
 p, li {
   font-size: 1em;
   font-weight: 200;
+  padding: 5px;
 }
 
 code {
@@ -41,7 +42,7 @@ code {
 header {
   background-color: rgba(248, 104, 121, 1);
   width: 100%;
-  height: 90px;
+  height: 120px;
   top: 0;
   position: absolute;
 }
@@ -55,7 +56,7 @@ footer {
   position: relative;
   width: 100%;
 	margin-top:0px; /* negative value of footer height */
-	height: 300px;
+	height: 200px;
 	clear:both;
   bottom: 0px;
   text-align: center;
@@ -65,15 +66,19 @@ strong {
   font-weight: 400
 }
 
-table, tr, td, th {
+table, tr, td, th, thead {
   padding: 10px;
   text-align: right;
+  margin: 0px;
+  border-spacing: 0px;
+}
+
+tr:hover{
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 th {
   color: rgba( 80, 192, 173, 1);
-  margin: 0px;
-  border: 0px;
 }
 
 address {
@@ -128,10 +133,6 @@ address {
   padding: 5px;
 }
 
-.white-text{
-  color: rgba(255, 255, 255, 1);
-}
-
 .three-col {
   width: 29%;
   display: inline-block;
@@ -168,7 +169,7 @@ address {
 }
 
 .push {
-  margin: 325px;
+  margin: 355px;
 }
 
 .push-sales{
@@ -186,6 +187,35 @@ address {
 
 ul.no-bullets {
   list-style-type: none;
+}
+
+ul.navigation {
+  text-align: center;
+}
+
+li.navigation{
+  display: inline;
+  padding-right: 20px;
+}
+
+li.navigation > a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-size: 1.25em;
+  text-transform: uppercase;
+}
+
+li.navigation > a:hover {
+  border-bottom: 1px solid;
+}
+
+li.selected > a {
+  border-bottom: 1px solid;
+}
+
+li.formField {
+  padding: 15px;
 }
 
 .tag-line-section {
@@ -213,11 +243,11 @@ img.merch {
   border-radius: 5px;
   display: inline-block;
   float: left;
-  margin-right: 5px;
+  margin: 15px;
 }
 
-h1.section-heading {
-  border-bottom: 1px solid rgba(73, 74, 73, 1);
+.section-heading{
+  margin: 0;
 }
 
 /* The Main Color */

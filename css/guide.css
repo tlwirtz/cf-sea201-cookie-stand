@@ -37,7 +37,7 @@ code {
 header {
   background-color: rgba(248, 104, 121, 1);
   width: 100%;
-  height: 90px;
+  height: 120px;
   top: 0;
   position: absolute;
 }
@@ -48,10 +48,6 @@ header > h1 {
 
 strong {
   font-weight: 400
-}
-
-.white-text{
-  color: rgba(255, 255, 255, 1);
 }
 
 .three-col {
@@ -70,7 +66,7 @@ strong {
 }
 
 .push {
-  margin: 120px;
+  margin: 150px;
 }
 
 .color-block {
@@ -82,6 +78,36 @@ strong {
   font-weight: 200;
 }
 
+
+ul.no-bullets {
+  list-style-type: none;
+}
+
+ul.navigation {
+  text-align: center;
+}
+
+li.navigation{
+  display: inline;
+  padding-right: 20px;
+}
+
+li.navigation > a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-size: 1.25em;
+  text-transform: uppercase;
+
+}
+
+li.navigation > a:hover {
+  border-bottom: 1px solid;
+}
+
+li.selected > a {
+  border-bottom: 1px solid;
+}
 
 /* The Main Color */
 .rgba-primary-0  { background-color: rgba(248, 104, 121, 1); }
