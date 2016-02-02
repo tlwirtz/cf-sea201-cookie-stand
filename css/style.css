@@ -41,7 +41,7 @@ code {
 header {
   background-color: rgba(248, 104, 121, 1);
   width: 100%;
-  height: 90px;
+  height: 120px;
   top: 0;
   position: absolute;
 }
@@ -168,7 +168,7 @@ address {
 }
 
 .push {
-  margin: 325px;
+  margin: 355px;
 }
 
 .push-sales{
@@ -186,6 +186,32 @@ address {
 
 ul.no-bullets {
   list-style-type: none;
+}
+
+ul.navigation {
+  text-align: center;
+}
+
+li.navigation{
+  display: inline;
+  padding-right: 20px;
+}
+
+li.navigation > a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-size: 1.25em;
+  text-transform: uppercase;
+
+}
+
+li.navigation > a:hover {
+  border-bottom: 1px solid;
+}
+
+li.selected > a {
+  border-bottom: 1px solid;
 }
 
 .tag-line-section {
@@ -213,7 +239,7 @@ img.merch {
   border-radius: 5px;
   display: inline-block;
   float: left;
-  margin-right: 5px;
+  margin: 15px;
 }
 
 h1.section-heading {
